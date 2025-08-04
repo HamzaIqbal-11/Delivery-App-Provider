@@ -1,7 +1,9 @@
 import 'package:delivery_app/Constants/app_assets.dart';
 import 'package:delivery_app/Constants/app_styles.dart';
+import 'package:delivery_app/Widgets/customCategoryCardList.dart';
 import 'package:delivery_app/Widgets/customTextEditingController.dart';
 import 'package:delivery_app/controller/categoryController.dart';
+import 'package:delivery_app/model/categoryModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
@@ -14,12 +16,60 @@ class Categories extends StatefulWidget {
 }
 
 class _CategoriesState extends State<Categories> {
+  bool? currentIndexColor;
+  int currentIndex = 0;
   List categoriesList = [
     'Meats & Fishes',
     'Vegetables',
     'Fruits',
-    'Organic',
-    'Hamza',
+    'Dairy',
+    'House Hold',
+  ];
+  List<CategoryModel> subCategoryList = [
+    CategoryModel(
+        productName: 'Big & Small Fishes',
+        productCategory: 'Fresh from sea',
+        price: 36,
+        image: AppAssets.dummyImage,
+        color: Color(0xffFFDC83)),
+    CategoryModel(
+        productName: 'Halal Meats',
+        productCategory: 'Organics & Fresh',
+        price: 90,
+        image: AppAssets.dummyImage,
+        color: Color(0xffF0FBC5)),
+  ];
+  List<CategoryModel> Vegetables = [
+    CategoryModel(
+        productName: 'Vegetables',
+        productCategory: 'Fresh from Market',
+        price: 20,
+        image: AppAssets.dummyImage,
+        color: Color(0xffFFDC83)),
+  ];
+  List<CategoryModel> Fruits = [
+    CategoryModel(
+        productName: 'Fruits',
+        productCategory: 'Fresh',
+        price: 30,
+        image: AppAssets.dummyImage,
+        color: Color(0xffFFDC83)),
+  ];
+  List<CategoryModel> Dairy = [
+    CategoryModel(
+        productName: 'Dairy',
+        productCategory: 'Fresh',
+        price: 36,
+        image: AppAssets.dummyImage,
+        color: Color(0xffFFDC83)),
+  ];
+  List<CategoryModel> HouseHold = [
+    CategoryModel(
+        productName: 'Household & Cleaning Supplies',
+        productCategory: 'Safe & Effective',
+        price: 25,
+        image: AppAssets.dummyImage,
+        color: Color(0xffFFDC83)),
   ];
   @override
   Widget build(BuildContext context) {
@@ -70,35 +120,72 @@ class _CategoriesState extends State<Categories> {
           SizedBox(
             height: 15.h,
           ),
-          Padding(
-            padding: EdgeInsets.only(left: 15.w),
-            child: SizedBox(
-              height: 40,
-              child: ListView.separated(
-                scrollDirection: Axis.horizontal,
-                separatorBuilder: (context, index) =>
-                    Padding(padding: EdgeInsets.only(left: 15.w)),
-                itemCount: categoriesList.length,
-                itemBuilder: (context, index) {
-                  return Container(
-                    height: 40,
-                    padding: EdgeInsets.only(left: 15.w, right: 15.w),
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30),
-                        border: Border.all(
-                          color: Color(0xffB2BBCE),
-                        )),
-                    child: Center(
-                      child: Text(
-                        categoriesList[index],
-                        style: AppStyles.customCategoryListText,
+          SizedBox(
+            height: 40,
+            child: ListView.separated(
+              padding: EdgeInsets.zero,
+              scrollDirection: Axis.horizontal,
+              separatorBuilder: (context, index) =>
+                  Padding(padding: EdgeInsets.only(left: 15.w)),
+              itemCount: categoriesList.length,
+              itemBuilder: (context, index) {
+                print("index $currentIndex");
+
+                return Padding(
+                  padding: EdgeInsets.only(
+                    left: index == 0
+                        ? 15
+                        : 0, // Only the first item has left padding
+                    right: index == categoriesList.length - 1
+                        ? 15
+                        : 0, // Optional: right padding on last item
+                  ),
+                  child: GestureDetector(
+                    onTap: () {
+                      if (index == 0) {
+                        categoryProvider.currentListTap(subCategoryList);
+                      } else if (index == 1) {
+                        categoryProvider.currentListTap(Vegetables);
+                      } else if (index == 2) {
+                        categoryProvider.currentListTap(Fruits);
+                      } else if (index == 3) {
+                        categoryProvider.currentListTap(Dairy);
+                      } else if (index == 4) {
+                        categoryProvider.currentListTap(HouseHold);
+                      }
+                      currentIndex = index;
+                    },
+                    child: Container(
+                      height: 40,
+                      padding: EdgeInsets.only(left: 15.w, right: 15.w),
+                      decoration: BoxDecoration(
+                          color: currentIndex == index
+                              ? Color(0xffF9B023)
+                              : Colors.white,
+                          borderRadius: BorderRadius.circular(30),
+                          border: Border.all(
+                            color: currentIndex == index
+                                ? Color(0xffF9B023)
+                                : Color(0xffB2BBCE),
+                          )),
+                      child: Center(
+                        child: Text(categoriesList[index],
+                            style: TextStyle(
+                              color: currentIndex == index
+                                  ? Colors.white
+                                  : Color(0xff616A7D),
+                              fontFamily: 'Manrope',
+                              fontWeight: FontWeight.w600,
+                              fontSize: 14,
+                            )),
                       ),
                     ),
-                  );
-                },
-              ),
+                  ),
+                );
+              },
             ),
-          )
+          ),
+          customCategoryListCard(context),
         ]));
   }
 }

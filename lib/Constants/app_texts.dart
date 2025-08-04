@@ -11,4 +11,5 @@ class AppTexts {
   static const String homeDiscountText1 = 'Get';
   static const String homeDiscountText2 = '50% OFF';
   static const String homeDiscountText3 = 'Get';
+  static const String appName = 'TazaaMart';
 }

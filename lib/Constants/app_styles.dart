@@ -180,9 +180,46 @@ class AppStyles {
   );
 
   static TextStyle customCategoryListText = TextStyle(
-    color: Color(0xffFAFBFD),
+    color: Color(0xff616A7D),
     fontFamily: 'Manrope',
     fontWeight: FontWeight.w600,
     fontSize: 14,
+  );
+  static TextStyle customAppNameStyle = TextStyle(
+    color: Colors.white,
+    fontFamily: 'Manrope',
+    fontStyle: FontStyle.italic,
+    fontWeight: FontWeight.w700,
+    fontSize: 50,
+  );
+  static TextStyle customFishText = TextStyle(
+    color: Color(0xff1E222B),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w700,
+    fontSize: 18,
+  );
+  static TextStyle customFishSubText = TextStyle(
+    color: Color(0xff616A7D),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+  );
+  static TextStyle customStartingFromText = TextStyle(
+    color: Color(0xff616A7D),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+  );
+  static TextStyle customFishPriceText = TextStyle(
+    color: Color(0xff2A4BA0),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w700,
+    fontSize: 16,
+  );
+  static TextStyle customFishKGText = TextStyle(
+    color: Color(0xff2A4BA0),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
   );
 }

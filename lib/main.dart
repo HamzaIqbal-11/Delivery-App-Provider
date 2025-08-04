@@ -5,8 +5,10 @@ import 'package:delivery_app/controller/homeController.dart';
 import 'package:delivery_app/controller/onboardController.dart';
 import 'package:delivery_app/controller/signInController.dart';
 import 'package:delivery_app/firebase_options.dart';
+import 'package:delivery_app/view/Splash/splashScreen.dart';
 import 'package:delivery_app/view/onboarding/onboarding.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -36,15 +38,15 @@ class MyApp extends StatelessWidget {
       child: ScreenUtilInit(
         designSize: Size(375, 812),
         child: MaterialApp(
+          theme: ThemeData(
+            primarySwatch: Colors.purple,
+          ),
           navigatorObservers: [RouteObserver()],
           onGenerateRoute: RoutesFactories.generateRoute,
           navigatorKey: navigatorKey,
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
-          theme: ThemeData(
-            colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          ),
-          home: const OnBoarding(),
+          home: const SplashScreen(),
         ),
       ),
     );

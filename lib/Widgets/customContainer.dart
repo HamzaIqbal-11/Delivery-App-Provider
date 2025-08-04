@@ -1,5 +1,6 @@
 import 'package:delivery_app/Constants/app_assets.dart';
 import 'package:delivery_app/Constants/app_styles.dart';
+import 'package:delivery_app/model/productModel.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -51,13 +52,41 @@ Widget customDiscountContainer(
 }
 
 Widget customRecommendCard() {
+  List<ProductModel> productLists = [
+    ProductModel(
+        productName: 'Fresh Lemon',
+        productCategory: 'Organic',
+        price: 12,
+        image: AppAssets.dummyImage),
+    ProductModel(
+        productName: 'Green Tea',
+        productCategory: 'Organic',
+        price: 06,
+        image: AppAssets.dummyImage),
+    ProductModel(
+        productName: 'Apples',
+        productCategory: 'Organic',
+        price: 08,
+        image: AppAssets.dummyImage),
+    ProductModel(
+        productName: 'Peaches',
+        productCategory: 'Organic',
+        price: 10,
+        image: AppAssets.dummyImage),
+    ProductModel(
+        productName: 'Cucumbers',
+        productCategory: 'Organic',
+        price: 13,
+        image: AppAssets.dummyImage),
+  ];
   return SizedBox(
     height: 200,
     width: double.infinity,
     child: ListView.builder(
-        itemCount: 5,
+        itemCount: productLists.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
+          final products = productLists[index];
           return Container(
             margin: EdgeInsets.only(left: 15.w),
             height: 194.h,
@@ -72,7 +101,7 @@ Widget customRecommendCard() {
                   padding: EdgeInsets.only(top: 25.h),
                   child: Image(
                     color: Color(0xffA1ABC0),
-                    image: AssetImage(AppAssets.dummyImage),
+                    image: AssetImage(products.image),
                     width: 56.67.w,
                     height: 56.67.h,
                   ),
@@ -91,7 +120,7 @@ Widget customRecommendCard() {
                   child: Padding(
                     padding: EdgeInsets.only(left: 15.w),
                     child: Text(
-                      "Fresh Lemon",
+                      products.productName,
                       style: AppStyles.customCardOrganicFoodName,
                     ),
                   ),
@@ -101,7 +130,7 @@ Widget customRecommendCard() {
                   child: Padding(
                     padding: EdgeInsets.only(left: 15.w),
                     child: Text(
-                      'Organic',
+                      products.productCategory,
                       style: AppStyles.customCardOrganicName,
                     ),
                   ),
@@ -129,7 +158,7 @@ Widget customRecommendCard() {
                                       text: 'Unit ',
                                       style: AppStyles.customUnitText),
                                   TextSpan(
-                                      text: '\$12',
+                                      text: '\$${products.price}',
                                       style:
                                           AppStyles.customOrganicFoodPriceText),
                                 ])),
