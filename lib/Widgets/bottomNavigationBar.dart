@@ -2,6 +2,7 @@ import 'package:delivery_app/Constants/app_assets.dart';
 import 'package:delivery_app/Constants/app_routes.dart';
 import 'package:delivery_app/Widgets/customClipper.dart';
 import 'package:delivery_app/controller/homeController.dart';
+import 'package:delivery_app/main.dart';
 import 'package:delivery_app/view/Category/category.dart';
 import 'package:delivery_app/view/Favourite/favoruite.dart';
 import 'package:delivery_app/view/Home/homeScreen.dart';
@@ -10,21 +11,28 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class BottomNavigation extends StatefulWidget {
-  const BottomNavigation({super.key});
+  const BottomNavigation({super.key, this.index});
+  final index;
 
   @override
   State<BottomNavigation> createState() => _BottomNavigationState();
 }
 
 class _BottomNavigationState extends State<BottomNavigation> {
+  final homeProvider = Provider.of<HomeController>(customContext!);
   final List screens = [
     HomeScreen(),
     Categories(),
     Favourites(),
   ];
+
+  void initState() {
+    super.initState();
+    homeProvider.selectIndex = widget.index;
+  }
+
   @override
   Widget build(BuildContext context) {
-    final homeProvider = Provider.of<HomeController>(context);
     return Scaffold(
       extendBody: true,
       body: screens[homeProvider.selectIndex],

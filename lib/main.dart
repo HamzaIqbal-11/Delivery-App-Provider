@@ -3,6 +3,8 @@ import 'package:delivery_app/controller/CustomController.dart';
 import 'package:delivery_app/controller/categoryController.dart';
 import 'package:delivery_app/controller/homeController.dart';
 import 'package:delivery_app/controller/onboardController.dart';
+import 'package:delivery_app/controller/productController.dart';
+import 'package:delivery_app/controller/productListController.dart';
 import 'package:delivery_app/controller/signInController.dart';
 import 'package:delivery_app/firebase_options.dart';
 import 'package:delivery_app/view/Splash/splashScreen.dart';
@@ -34,13 +36,13 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => SignInController()),
         ChangeNotifierProvider(create: (context) => HomeController()),
         ChangeNotifierProvider(create: (context) => Categorycontroller()),
+        ChangeNotifierProvider(create: (context) => Productcontroller()),
+        ChangeNotifierProvider(create: (context) => Productlistcontroller()),
       ],
       child: ScreenUtilInit(
         designSize: Size(375, 812),
         child: MaterialApp(
-          theme: ThemeData(
-            primarySwatch: Colors.purple,
-          ),
+          theme: ThemeData(),
           navigatorObservers: [RouteObserver()],
           onGenerateRoute: RoutesFactories.generateRoute,
           navigatorKey: navigatorKey,

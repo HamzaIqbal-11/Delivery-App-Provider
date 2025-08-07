@@ -222,4 +222,22 @@ class AppStyles {
     fontWeight: FontWeight.w400,
     fontSize: 16,
   );
+  static TextStyle customProductNameTitle = TextStyle(
+    color: Color(0xff1E222B),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+  );
+  static TextStyle customSubProductPriceText = TextStyle(
+    color: Color(0xff1E222B),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w600,
+    fontSize: 14,
+  );
+  static TextStyle customSubProductNameText = TextStyle(
+    color: Color(0xff616A7D),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w600,
+    fontSize: 12,
+  );
 }

@@ -5,4 +5,7 @@ class AppRoutes {
   static const String home = '/home';
   static const String category = '/category';
   static const String favourite = '/favourite';
+  static const String products = '/products';
+  static const String bottomNavigation = '/bottomNavigation';
+  static const String productList = '/productList';
 }

@@ -50,8 +50,12 @@ class SignInController extends ChangeNotifier {
           (userInfo) => userInfo.providerId == GoogleAuthProvider.PROVIDER_ID);
 
       if (isGoogleLogin) {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => BottomNavigation()));
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => BottomNavigation(
+                      index: 0,
+                    )));
       } else {
         Navigator.push(
             context, MaterialPageRoute(builder: (context) => OnBoarding()));

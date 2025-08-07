@@ -44,9 +44,10 @@ import 'package:provider/provider.dart';
 //   @override
 //   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
 // }
-final homeProvider = Provider.of<HomeController>(customContext!, listen: false);
 
 class customIconClipper1 extends CustomClipper<Path> {
+  final homeProvider =
+      Provider.of<HomeController>(customContext!, listen: false);
   @override
   Path getClip(Size size) {
     Path path = Path();

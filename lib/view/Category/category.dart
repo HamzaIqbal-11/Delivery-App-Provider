@@ -1,5 +1,6 @@
 import 'package:delivery_app/Constants/app_assets.dart';
 import 'package:delivery_app/Constants/app_styles.dart';
+import 'package:delivery_app/Widgets/CustomButtons.dart';
 import 'package:delivery_app/Widgets/customCategoryCardList.dart';
 import 'package:delivery_app/Widgets/customTextEditingController.dart';
 import 'package:delivery_app/controller/categoryController.dart';
@@ -9,7 +10,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class Categories extends StatefulWidget {
-  const Categories({super.key});
+  const Categories({
+    super.key,
+  });
 
   @override
   State<Categories> createState() => _CategoriesState();
@@ -25,52 +28,7 @@ class _CategoriesState extends State<Categories> {
     'Dairy',
     'House Hold',
   ];
-  List<CategoryModel> subCategoryList = [
-    CategoryModel(
-        productName: 'Big & Small Fishes',
-        productCategory: 'Fresh from sea',
-        price: 36,
-        image: AppAssets.dummyImage,
-        color: Color(0xffFFDC83)),
-    CategoryModel(
-        productName: 'Halal Meats',
-        productCategory: 'Organics & Fresh',
-        price: 90,
-        image: AppAssets.dummyImage,
-        color: Color(0xffF0FBC5)),
-  ];
-  List<CategoryModel> Vegetables = [
-    CategoryModel(
-        productName: 'Vegetables',
-        productCategory: 'Fresh from Market',
-        price: 20,
-        image: AppAssets.dummyImage,
-        color: Color(0xffFFDC83)),
-  ];
-  List<CategoryModel> Fruits = [
-    CategoryModel(
-        productName: 'Fruits',
-        productCategory: 'Fresh',
-        price: 30,
-        image: AppAssets.dummyImage,
-        color: Color(0xffFFDC83)),
-  ];
-  List<CategoryModel> Dairy = [
-    CategoryModel(
-        productName: 'Dairy',
-        productCategory: 'Fresh',
-        price: 36,
-        image: AppAssets.dummyImage,
-        color: Color(0xffFFDC83)),
-  ];
-  List<CategoryModel> HouseHold = [
-    CategoryModel(
-        productName: 'Household & Cleaning Supplies',
-        productCategory: 'Safe & Effective',
-        price: 25,
-        image: AppAssets.dummyImage,
-        color: Color(0xffFFDC83)),
-  ];
+
   @override
   Widget build(BuildContext context) {
     final categoryProvider = Provider.of<Categorycontroller>(context);
@@ -88,21 +46,8 @@ class _CategoriesState extends State<Categories> {
                   style: AppStyles.customSemiBoldWhite22Px,
                 ),
                 actions: [
-                  IconButton(
-                    onPressed: categoryProvider.iconTap,
-                    icon: Image.asset(
-                      AppAssets.search,
-                      width: 18.w,
-                      height: 18.h,
-                    ),
-                  ),
-                  IconButton(
-                      onPressed: () {},
-                      icon: Image.asset(
-                        AppAssets.bagIcon,
-                        width: 16.w,
-                        height: 18.h,
-                      ))
+                  searchButton(context, color: Colors.white),
+                  notificationButton(color: Colors.white)
                 ],
               ),
         body: Column(children: [
@@ -143,15 +88,19 @@ class _CategoriesState extends State<Categories> {
                   child: GestureDetector(
                     onTap: () {
                       if (index == 0) {
-                        categoryProvider.currentListTap(subCategoryList);
+                        categoryProvider
+                            .currentListTap(categoryProvider.subCategoryList);
                       } else if (index == 1) {
-                        categoryProvider.currentListTap(Vegetables);
+                        categoryProvider
+                            .currentListTap(categoryProvider.Vegetables);
                       } else if (index == 2) {
-                        categoryProvider.currentListTap(Fruits);
+                        categoryProvider
+                            .currentListTap(categoryProvider.Fruits);
                       } else if (index == 3) {
-                        categoryProvider.currentListTap(Dairy);
+                        categoryProvider.currentListTap(categoryProvider.Dairy);
                       } else if (index == 4) {
-                        categoryProvider.currentListTap(HouseHold);
+                        categoryProvider
+                            .currentListTap(categoryProvider.HouseHold);
                       }
                       currentIndex = index;
                     },
@@ -185,7 +134,7 @@ class _CategoriesState extends State<Categories> {
               },
             ),
           ),
-          customCategoryListCard(context),
+          customCategoryListCard(context, currentIndex),
         ]));
   }
 }

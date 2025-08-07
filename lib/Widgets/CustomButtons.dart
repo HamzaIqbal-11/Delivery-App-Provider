@@ -1,9 +1,11 @@
 import 'package:delivery_app/Constants/app_assets.dart';
 import 'package:delivery_app/Constants/app_styles.dart';
 import 'package:delivery_app/controller/CustomController.dart';
+import 'package:delivery_app/controller/categoryController.dart';
 import 'package:delivery_app/controller/signInController.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 Widget backbutton(void Function()? onPressed) {
   return Container(
@@ -12,12 +14,41 @@ Widget backbutton(void Function()? onPressed) {
       onPressed: onPressed,
       icon: Image.asset(
         AppAssets.backArrow,
-        width: 190,
-        height: 190,
+        width: 40.w,
+        height: 44.h,
         fit: BoxFit.contain,
       ),
     ),
   );
+}
+
+Widget searchButton(context, {Color? color}) {
+  final categoryProv = Provider.of<Categorycontroller>(context);
+  return Container(
+    //: const EdgeInsets.only(left: 10),
+    child: IconButton(
+      onPressed: categoryProv.iconTap,
+      icon: Image.asset(
+        AppAssets.search,
+        color: color,
+        width: 18.w,
+        height: 18.h,
+      ),
+    ),
+  );
+}
+
+Widget notificationButton({Color? color}) {
+  return Container(
+      //: const EdgeInsets.only(left: 10),
+      child: IconButton(
+          onPressed: () {},
+          icon: Image.asset(
+            AppAssets.bagIcon,
+            color: color,
+            width: 16.w,
+            height: 18.h,
+          )));
 }
 
 Widget customAppButton(
