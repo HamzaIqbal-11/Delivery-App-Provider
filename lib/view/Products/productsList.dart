@@ -10,18 +10,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-class Products extends StatefulWidget {
-  const Products({
+class ProductsList extends StatefulWidget {
+  const ProductsList({
     super.key,
     this.productName,
   });
   final productName;
 
   @override
-  State<Products> createState() => _ProductsState();
+  State<ProductsList> createState() => _ProductsListState();
 }
 
-class _ProductsState extends State<Products> {
+class _ProductsListState extends State<ProductsList> {
   int figmaWidth = 160;
   int figmaHeight = 194;
 
@@ -64,10 +64,6 @@ class _ProductsState extends State<Products> {
         surfaceTintColor: Colors.transparent,
         leading: backbutton(() {
           Navigator.pop(context);
-          // Navigator.pushNamed(context, AppRoutes.bottomNavigation, arguments: {
-          //   AppArguments.index: 1,
-          //   AppArguments.currentIndex: widget.index
-          // });
         }),
         title: Text(
           widget.productName,
@@ -147,7 +143,8 @@ class _ProductsState extends State<Products> {
                       onTap: () {
                         Navigator.pushNamed(context, AppRoutes.productList,
                             arguments: {
-                              AppArguments.productName: productList.name
+                              AppArguments.productName: productList.name,
+                              AppArguments.price: productList.price,
                             });
                       },
                       child: Container(

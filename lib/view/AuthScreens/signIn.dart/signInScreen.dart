@@ -107,7 +107,7 @@ class _SignInScreenState extends State<SignInScreen>
                 SizedBox(height: 130.h),
                 SizedBox(
                   width: double.infinity,
-                  child: customAppButton(
+                  child: customLoginButton(
                     'Log In',
                     customProvider.emailCheck,
                     customProvider.passCheck,

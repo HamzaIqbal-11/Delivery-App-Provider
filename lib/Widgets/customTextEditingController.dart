@@ -135,3 +135,36 @@ Widget appBarSearchField(context) {
     ),
   );
 }
+
+Widget appAdressTextField(context, String text, int maxLine) {
+  final categoryProvider = Provider.of<Categorycontroller>(context);
+  return Container(
+    padding: EdgeInsets.only(top: 30.h),
+    //  color: Color(0xff2A4BA0),
+    child: TextFormField(
+      maxLines: maxLine,
+      decoration: InputDecoration(
+          contentPadding: EdgeInsets.only(top: 35.h, left: 10.w),
+          labelText: text,
+          labelStyle: AppStyles.customSearhHintText,
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(
+              color: Color(0xff8891A5),
+            ),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(
+              color: Color(0xff8891A5),
+            ),
+          ),
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide(
+              color: Color(0xff8891A5),
+            ),
+          )),
+    ),
+  );
+}

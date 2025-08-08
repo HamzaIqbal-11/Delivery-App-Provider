@@ -15,4 +15,10 @@ class AppAssets {
   static const String categoryColor = 'assets/images/CategoriesColored.png';
   static const String heartColor = 'assets/images/HeartColored.png';
   static const String bagIcon = 'assets/images/bag.png';
+  static const String star = 'assets/images/star.png';
+  static const String starFill = 'assets/images/starFill.png';
+  static const String dropDown = 'assets/images/dropDown.png';
+  static const String dropDownUp = 'assets/images/dropDownUp.png';
+  static const String banner = 'assets/images/Banner.png';
+  static const String bgElements = 'assets/images/BG_Elements.png';
 }

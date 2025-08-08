@@ -5,10 +5,12 @@ import 'package:delivery_app/view/AuthScreens/signIn.dart/signInScreen.dart';
 import 'package:delivery_app/view/Category/category.dart';
 import 'package:delivery_app/view/Favourite/favoruite.dart';
 import 'package:delivery_app/view/Home/homeScreen.dart';
-import 'package:delivery_app/view/Products/products.dart';
+import 'package:delivery_app/view/Products/productsList.dart';
+import 'package:delivery_app/view/checkout/checkoutScreen.dart';
 import 'package:delivery_app/view/onboarding/onBoardingPage.dart';
 import 'package:delivery_app/view/onboarding/onboarding.dart';
-import 'package:delivery_app/view/productList/productList.dart';
+import 'package:delivery_app/view/productDetail/productDetail.dart';
+import 'package:delivery_app/view/shoppingCart/cart.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -30,6 +32,10 @@ class RoutesFactories {
       GlobalKey<NavigatorState>();
   static final GlobalKey<NavigatorState> productListkey =
       GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> shoppingCartKey =
+      GlobalKey<NavigatorState>();
+  static final GlobalKey<NavigatorState> checkoutKey =
+      GlobalKey<NavigatorState>();
 
   static const int onboardingIndex = 0;
   static const int signInIndex = 1;
@@ -39,7 +45,10 @@ class RoutesFactories {
   static const int favIndex = 5;
   static const int productIndex = 6;
   static const int bottomNavigationIndex = 7;
-  static const int productListIndex = 8;
+  static const int productDetailIndex = 8;
+
+  static const int shoppingCartIndex = 9;
+  static const int checkoutIndex = 10;
 
   static GlobalKey<NavigatorState> _currentNavigator = onBoardingKey;
   static GlobalKey<NavigatorState> get currentNavigator => _currentNavigator;
@@ -70,8 +79,14 @@ class RoutesFactories {
       case bottomNavigationIndex:
         _currentNavigator = bottomNavigationkey;
         break;
-      case productListIndex:
+      case productDetailIndex:
         _currentNavigator = productListkey;
+        break;
+      case shoppingCartIndex:
+        _currentNavigator = shoppingCartKey;
+        break;
+      case checkoutIndex:
+        _currentNavigator = checkoutKey;
         break;
     }
   }
@@ -113,7 +128,7 @@ class RoutesFactories {
         final args = routeSettings.arguments as Map<String, dynamic>?;
 
         return MaterialPageRoute(
-          builder: (context) => Products(
+          builder: (context) => ProductsList(
             productName: args?[AppArguments.productCategory],
           ),
           settings: routeSettings,
@@ -131,9 +146,24 @@ class RoutesFactories {
         final args = routeSettings.arguments as Map<String, dynamic>?;
 
         return MaterialPageRoute(
-          builder: (context) => ProductList(
+          builder: (context) => ProductDetail(
             productName: args?[AppArguments.productName],
+            price: args?[AppArguments.price],
           ),
+          settings: routeSettings,
+        );
+      case AppRoutes.shoppingCart:
+        final args = routeSettings.arguments as Map<String, dynamic>?;
+
+        return MaterialPageRoute(
+          builder: (context) => ShoppingCart(),
+          settings: routeSettings,
+        );
+      case AppRoutes.checkOut:
+        final args = routeSettings.arguments as Map<String, dynamic>?;
+
+        return MaterialPageRoute(
+          builder: (context) => CheckoutScreen(),
           settings: routeSettings,
         );
       default:

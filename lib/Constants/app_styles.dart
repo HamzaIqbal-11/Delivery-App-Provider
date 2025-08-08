@@ -210,13 +210,13 @@ class AppStyles {
     fontWeight: FontWeight.w400,
     fontSize: 14,
   );
-  static TextStyle customFishPriceText = TextStyle(
+  static TextStyle customPriceText = TextStyle(
     color: Color(0xff2A4BA0),
     fontFamily: 'Manrope',
     fontWeight: FontWeight.w700,
     fontSize: 16,
   );
-  static TextStyle customFishKGText = TextStyle(
+  static TextStyle customKGText = TextStyle(
     color: Color(0xff2A4BA0),
     fontFamily: 'Manrope',
     fontWeight: FontWeight.w400,
@@ -239,5 +239,149 @@ class AppStyles {
     fontFamily: 'Manrope',
     fontWeight: FontWeight.w600,
     fontSize: 12,
+  );
+  static TextStyle custsomProductDetailName = TextStyle(
+    color: Colors.black,
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w700,
+    fontSize: 20,
+  );
+  static TextStyle customPriceOFFText = TextStyle(
+    color: Color(0xffFAFBFD),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w400,
+    fontSize: 12,
+  );
+  static TextStyle customReviewText = TextStyle(
+    color: Color(0xffA1A1AB),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+  );
+  static TextStyle customDetailText = TextStyle(
+    color: Color(0xff1E222B),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+  );
+  static TextStyle customSubDetailText = TextStyle(
+    color: Color(0xff8891A5),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+  );
+  static TextStyle customNutrFactTxt = TextStyle(
+    color: Color(0xff1E222B),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+  );
+  static TextStyle customShopingCartText = TextStyle(
+    color: Color(0xff1E222B),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+  );
+  static TextStyle customCartListTitle = TextStyle(
+    color: Color(0xff1E222B),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w500,
+    fontSize: 14,
+  );
+  static TextStyle customCartListSubTitle = TextStyle(
+    color: Color(0xff1E222B),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+  );
+  static TextStyle customCartOFFPercent = TextStyle(
+    color: Color(0xffFAFBFD),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w800,
+    fontSize: 110,
+  );
+  static TextStyle customCartOFFText = TextStyle(
+    color: Color(0xffFAFBFD),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w800,
+    fontSize: 20,
+  );
+  static TextStyle customCodeText = TextStyle(
+    color: Color(0xff1E222B),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+  );
+  static TextStyle customHalalFoodText = TextStyle(
+    color: Color(0xff1E222B),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w500,
+    fontSize: 16,
+  );
+  static TextStyle customCartMoreItemsText = TextStyle(
+    color: Color(0xff2A4BA0),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w500,
+    fontSize: 12,
+  );
+  static TextStyle customSubTotalText = TextStyle(
+    color: Color(0xff616A7D),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+  );
+  static TextStyle customSubTotalPrice = TextStyle(
+    color: Color(0xff1E222B),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w500,
+    fontSize: 14,
+  );
+  static TextStyle customTotalPrice = TextStyle(
+    color: Color(0xff1E222B),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w600,
+    fontSize: 14,
+  );
+  static TextStyle customDeliveryAddressTxt = TextStyle(
+    color: Colors.black,
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w400,
+    fontSize: 16,
+  );
+  static TextStyle customAddressNameText = TextStyle(
+    color: Color(0xff1E222B),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w400,
+    fontSize: 14,
+  );
+  static TextStyle customAddress = TextStyle(
+    color: Colors.black,
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w600,
+    fontSize: 14,
+  );
+  static TextStyle customEditText = TextStyle(
+    color: Color(0xff2A4BA0),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w500,
+    fontSize: 12,
+  );
+  static TextStyle customAddNewAddress = TextStyle(
+    color: Color(0xff1E222B),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w500,
+    fontSize: 14,
+  );
+  static TextStyle customAddAddressSheetTitle = TextStyle(
+    color: Color(0xff1E222B),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w800,
+    fontSize: 20,
+  );
+  static TextStyle customMapText = TextStyle(
+    color: Color(0xff2A4BA0),
+    fontFamily: 'Manrope',
+    fontWeight: FontWeight.w500,
+    fontSize: 17,
   );
 }

@@ -77,10 +77,9 @@ Widget customCategoryListCard(context, index) {
                                 text: TextSpan(children: [
                               TextSpan(
                                   text: '\$${category.price}',
-                                  style: AppStyles.customFishPriceText),
+                                  style: AppStyles.customPriceText),
                               TextSpan(
-                                  text: '/KG',
-                                  style: AppStyles.customFishKGText),
+                                  text: '/KG', style: AppStyles.customKGText),
                             ]))
                           ],
                         ),

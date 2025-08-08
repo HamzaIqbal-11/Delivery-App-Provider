@@ -7,7 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
-Widget backbutton(void Function()? onPressed) {
+Widget backbutton(
+  void Function()? onPressed,
+) {
   return Container(
     //: const EdgeInsets.only(left: 10),
     child: IconButton(
@@ -51,7 +53,7 @@ Widget notificationButton({Color? color}) {
           )));
 }
 
-Widget customAppButton(
+Widget customLoginButton(
   String buttonTxt,
   bool emailcheck,
   bool passCheck,
@@ -92,5 +94,33 @@ Widget customGoogleButton(String buttonTxt, context) {
         ],
       ),
     ),
+  );
+}
+
+Widget customAppButton(
+  String buttonTxt,
+  Color? txtColor,
+  Color? color,
+  Color? borderColor,
+  void Function()? onPressed,
+) {
+  return ElevatedButton(
+    style: ElevatedButton.styleFrom(
+      shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(20.h),
+          side: BorderSide(color: borderColor!)),
+
+      minimumSize: Size(double.infinity, 60.h),
+      backgroundColor: color,
+      // Color(0XFF2A4BA0),
+    ),
+    onPressed: onPressed,
+    child: Text(buttonTxt,
+        style: TextStyle(
+          color: txtColor,
+          fontFamily: 'Manrope',
+          fontWeight: FontWeight.w600,
+          fontSize: 16,
+        )),
   );
 }

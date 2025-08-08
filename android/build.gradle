@@ -1,7 +1,24 @@
+buildscript {
+    ext {
+        mapboxMapsVersion = "11.3.1" // Latest stable version
+    }
+    // ... keep other configurations
+}
+
 allprojects {
     repositories {
         google()
         mavenCentral()
+         maven {
+            url 'https://api.mapbox.com/downloads/v2/releases/maven'
+            authentication {
+                basic(BasicAuthentication)
+            }
+            credentials {
+                username = "mapbox"
+                password = project.properties['MAPBOX_DOWNLOADS_TOKEN'] ?: ""
+            }
+         }
     }
 }
 
@@ -16,5 +33,4 @@ subprojects {
 tasks.register("clean", Delete) {
     delete rootProject.buildDir
 }
-
  
